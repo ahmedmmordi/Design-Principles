@@ -1,5 +1,13 @@
 package org.example.principles.D_SingleResponsibilityPrinciple;
 
+import org.example.principles.D_SingleResponsibilityPrinciple.calculator.BasicOrderCalculator;
+import org.example.principles.D_SingleResponsibilityPrinciple.manager.OrderManager;
+import org.example.principles.D_SingleResponsibilityPrinciple.model.Item;
+import org.example.principles.D_SingleResponsibilityPrinciple.model.Order;
+import org.example.principles.D_SingleResponsibilityPrinciple.notification.EmailNotificationService;
+import org.example.principles.D_SingleResponsibilityPrinciple.persistence.DatabaseOrderPersistence;
+import org.example.principles.D_SingleResponsibilityPrinciple.printer.CheckPrinter;
+
 import java.util.List;
 
 public class Main {
