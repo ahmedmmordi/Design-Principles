@@ -1,10 +1,9 @@
 package org.example.principles.F_LiskovSubstitutionPrinciple.vehicle;
 
 import org.example.principles.F_LiskovSubstitutionPrinciple.exceptions.ExceedsMaxRentalHoursException;
-import org.example.principles.F_LiskovSubstitutionPrinciple.rental.Rentable;
 import org.example.principles.F_LiskovSubstitutionPrinciple.calculator.CostCalculator;
 
-public class ElectricScooter extends Vehicle implements Rentable, CostCalculator {
+public class ElectricScooter extends Vehicle implements CostCalculator {
     public ElectricScooter(int vehicleId, String vehicleName, double vehicleHourlyPrice) {
         super(vehicleId, vehicleName, vehicleHourlyPrice);
     }
@@ -26,6 +25,11 @@ public class ElectricScooter extends Vehicle implements Rentable, CostCalculator
         }
         this.calculate(this, hours);
         System.out.println("ElectricScooter Rented Successfully for $" + this.getLastRentalCost());
+    }
+
+    @Override
+    public void cancelRent() {
+        System.out.println("Renting of Vehicle with ID " + this.getVehicleId() + " has been cancelled.\n");
     }
 
     @Override

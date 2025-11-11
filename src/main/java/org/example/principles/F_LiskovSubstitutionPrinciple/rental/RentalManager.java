@@ -11,12 +11,12 @@ public class RentalManager {
         this.rentalReportPrinter = rentalReportPrinter;
     }
 
-    public void rentVehicle(Rentable vehicle, double hours) {
+    public void rentVehicle(Vehicle vehicle, double hours) {
         vehicle.rent(hours);
     }
 
     public void cancelRentVehicle(Vehicle vehicle) {
-        System.out.println("Vehicle with ID " + vehicle.getVehicleId() + " has been cancelled.\n");
+        vehicle.cancelRent();
     }
 
     public void printVehicleRentalSummary(Vehicle vehicle) {

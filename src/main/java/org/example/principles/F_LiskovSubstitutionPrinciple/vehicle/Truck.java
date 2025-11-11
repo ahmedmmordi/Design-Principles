@@ -1,10 +1,9 @@
 package org.example.principles.F_LiskovSubstitutionPrinciple.vehicle;
 
-import org.example.principles.F_LiskovSubstitutionPrinciple.rental.Rentable;
 import org.example.principles.F_LiskovSubstitutionPrinciple.calculator.CostCalculator;
 import org.example.principles.F_LiskovSubstitutionPrinciple.requirements.RequiresSpecialLicense;
 
-public class Truck extends Vehicle implements Rentable, RequiresSpecialLicense, CostCalculator {
+public class Truck extends Vehicle implements RequiresSpecialLicense, CostCalculator {
     private double truckInsurance;
 
     public Truck(int vehicleId, String vehicleName, double vehicleHourlyPrice, double truckInsurance) {
@@ -26,6 +25,11 @@ public class Truck extends Vehicle implements Rentable, RequiresSpecialLicense, 
     public void rent(double hours) {
         this.calculate(this, hours);
         System.out.println("Truck Rented Successfully for $" + this.getLastRentalCost());
+    }
+
+    @Override
+    public void cancelRent() {
+        System.out.println("Renting of Vehicle with ID " + this.getVehicleId() + " has been cancelled.\n");
     }
 
     @Override

@@ -1,9 +1,8 @@
 package org.example.principles.F_LiskovSubstitutionPrinciple.vehicle;
 
-import org.example.principles.F_LiskovSubstitutionPrinciple.rental.Rentable;
 import org.example.principles.F_LiskovSubstitutionPrinciple.calculator.CostCalculator;
 
-public class Car extends Vehicle implements Rentable, CostCalculator {
+public class Car extends Vehicle implements CostCalculator {
     public Car(int vehicleId, String vehicleName, double vehicleHourlyPrice) {
         super(vehicleId, vehicleName, vehicleHourlyPrice);
     }
@@ -22,6 +21,11 @@ public class Car extends Vehicle implements Rentable, CostCalculator {
     public void rent(double hours) {
         this.calculate(this, hours);
         System.out.println("Car Rented Successfully for $" + this.getLastRentalCost());
+    }
+
+    @Override
+    public void cancelRent() {
+        System.out.println("Renting of Vehicle with ID " + this.getVehicleId() + " has been cancelled.\n");
     }
 
     @Override

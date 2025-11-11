@@ -1,13 +1,15 @@
 package org.example.principles.F_LiskovSubstitutionPrinciple.vehicle;
 
-public abstract class Vehicle {
+import org.example.principles.F_LiskovSubstitutionPrinciple.rental.Rentable;
+
+public abstract class Vehicle implements Rentable {
     private int vehicleId;
     private String vehicleName;
     private double vehicleHourlyPrice;
     private double lastRentalHours;
     private double lastRentalCost;
 
-    public Vehicle() {}
+    protected Vehicle() {}
 
     public Vehicle(int vehicleId, String vehicleName, double vehicleHourlyPrice) {
         this.vehicleId = vehicleId;
@@ -15,7 +17,14 @@ public abstract class Vehicle {
         this.vehicleHourlyPrice = vehicleHourlyPrice;
     }
 
+    @Override
+    public abstract void rent(double hours);
+
+    @Override
+    public abstract void cancelRent();
+
     public abstract void move();
+
     public abstract void stop();
 
     public int getVehicleId() {

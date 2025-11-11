@@ -1,7 +1,6 @@
 package org.example.principles.F_LiskovSubstitutionPrinciple;
 
 import org.example.principles.F_LiskovSubstitutionPrinciple.printer.PaperPrinter;
-import org.example.principles.F_LiskovSubstitutionPrinciple.rental.Rentable;
 import org.example.principles.F_LiskovSubstitutionPrinciple.rental.RentalManager;
 import org.example.principles.F_LiskovSubstitutionPrinciple.vehicle.*;
 
@@ -28,7 +27,7 @@ public class Main {
     }
 
     private static void rentPrintCancel(RentalManager rentalManager, Vehicle vehicle, double hours) {
-        rentalManager.rentVehicle((Rentable) vehicle, hours);
+        rentalManager.rentVehicle(vehicle, hours);
         rentalManager.printVehicleRentalSummary(vehicle);
         rentalManager.cancelRentVehicle(vehicle);
         System.out.println("----------------------------------------------------");
