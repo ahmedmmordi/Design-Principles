@@ -1,0 +1,6 @@
+package org.example.principles.F_LiskovSubstitutionPrinciple.Solution.rental;
+
+public interface Rentable {
+    void rent(double hours);
+    void cancelRent();
+}
